@@ -36,17 +36,16 @@ fig_band,   ax_band   = plt.subplots()
 lmbd=1
 onsite_0=delta*(-1.0)*np.cos(2.0*np.pi*(1-0.0/3.0))
 onsite_1=delta*(-1.0)*np.cos(2.0*np.pi*(1-1.0/3.0))
-    #onsite_2=delta*(-1.0)*np.cos(2.0*np.pi*(lmbd-2.0/3.0))
 
-    # update onsite terms by rewriting previous values
+# update onsite terms by rewriting previous values
 my_model.set_onsite([onsite_0,onsite_1],mode="reset")
 
-    # create k mesh over 1D Brillouin zone
+# create k mesh over 1D Brillouin zone
 (k_vec,k_dist,k_node)=my_model.k_path([[-0.5],[0.5]], 100,report=True)
-    # solve model on all of these k-points
+# solve model on all of these k-points
 eval=my_model.solve_all(k_vec,eig_vectors=False)
 
-    # plot band structure for all two bands
+# plot band structure for all two bands
 for band in range(len(eval)):
     ax_band.plot(k_dist,eval[band,:],"k-",linewidth=0.5)
 
