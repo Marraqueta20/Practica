@@ -16,7 +16,7 @@ my_model.set_hop(0.5, 0, 0, [1])
 
 
 # define a path in k-space
-(k_vec,k_dist,k_node)=my_model.k_path([[-0.5],[0.5]],num_kpt,report=False)
+(k_vec,k_dist,k_node)=my_model.k_path([[-0.5],[0.5]],100,report=False)
 k_label=[r"$0$",r"$\pi$", r"$2\pi$"]
 
 # solve model
